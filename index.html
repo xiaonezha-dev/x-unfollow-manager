@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Unfollow Manager for X — Bulk Unfollow & Ghost Follower Cleanup</title>
+<meta name="description" content="Bulk unfollow people who don't follow back, see who unfollowed you, and remove ghost followers — with safe speed limits.">
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;line-height:1.6;background:#fff}
+.wrap{max-width:960px;margin:0 auto;padding:0 20px}
+header{border-bottom:1px solid #eee;padding:16px 0}
+header .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
+.logo{font-weight:800;font-size:18px}
+nav a{margin-left:18px;color:#555;text-decoration:none;font-size:14px}
+nav a:hover{color:#000}
+.hero{text-align:center;padding:72px 0 56px}
+.hero h1{font-size:40px;line-height:1.2;margin-bottom:16px}
+.hero p{font-size:18px;color:#555;max-width:640px;margin:0 auto 28px}
+.btn{display:inline-block;background:#000;color:#fff;padding:14px 32px;border-radius:10px;text-decoration:none;font-weight:700;font-size:16px}
+.btn:hover{background:#333}
+.price-note{margin-top:14px;color:#777;font-size:14px}
+section{padding:48px 0}
+h2{font-size:28px;margin-bottom:24px;text-align:center}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
+.card{border:1px solid #eee;border-radius:12px;padding:20px}
+.card h3{font-size:16px;margin-bottom:8px}
+.card p{font-size:14px;color:#555}
+.plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:720px;margin:0 auto}
+.plan{border:2px solid #eee;border-radius:14px;padding:28px;text-align:center}
+.plan.pro{border-color:#000}
+.plan h3{font-size:20px;margin-bottom:8px}
+.plan .amount{font-size:36px;font-weight:800;margin:12px 0}
+.plan ul{list-style:none;text-align:left;font-size:14px;color:#444;margin:16px 0}
+.plan ul li{padding:6px 0;border-bottom:1px solid #f2f2f2}
+.faq{max-width:680px;margin:0 auto}
+.faq details{border:1px solid #eee;border-radius:10px;padding:14px 18px;margin-bottom:12px}
+.faq summary{font-weight:700;cursor:pointer}
+.faq p{font-size:14px;color:#555;margin-top:8px}
+footer{border-top:1px solid #eee;padding:28px 0;text-align:center;font-size:13px;color:#777}
+footer a{color:#555;margin:0 10px;text-decoration:none}
+@media(max-width:600px){.hero h1{font-size:30px}}
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <div class="logo">Unfollow Manager for X</div>
+    <nav>
+      <a href="#features">Features</a>
+      <a href="#pricing">Pricing</a>
+      <a href="terms.html">Terms</a>
+      <a href="privacy.html">Privacy</a>
+      <a href="refunds.html">Refunds</a>
+    </nav>
+  </div>
+</header>
+
+<div class="hero wrap">
+  <h1>Bulk Unfollow &amp; Ghost Follower Cleanup for X</h1>
+  <p>Bulk unfollow people who don't follow back, see who unfollowed you, and remove ghost followers — with safe speed limits.</p>
+  <a class="btn" href="#pricing">Get Pro — $3 one-time</a>
+  <div class="price-note">Launching soon on the Chrome Web Store · Free plan available</div>
+</div>
+
+<section id="features">
+  <div class="wrap">
+    <h2>What it does</h2>
+    <div class="grid">
+      <div class="card"><h3>Bulk unfollow</h3><p>Select and unfollow in batches with a live progress bar. Stop anytime.</p></div>
+      <div class="card"><h3>Non-follower detection</h3><p>Find everyone who doesn't follow you back, filter and clean up in batches.</p></div>
+      <div class="card"><h3>Unfollow tracker</h3><p>Snapshot your followers and see exactly who quietly unfollowed you.</p></div>
+      <div class="card"><h3>Ghost follower cleanup (Pro)</h3><p>List non-verified followers and remove them with a silent soft block/unblock — they are never notified.</p></div>
+      <div class="card"><h3>Smart filters</h3><p>Flag likely bot accounts, auto-protect verified accounts.</p></div>
+      <div class="card"><h3>Whitelist</h3><p>Never touch the people you choose.</p></div>
+      <div class="card"><h3>Safe speed tiers</h3><p>Fast / Normal / Safe speeds with daily caps to respect X rate limits. Ships on Safe by default.</p></div>
+      <div class="card"><h3>Bilingual</h3><p>English / 中文 interface.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" style="background:#fafafa">
+  <div class="wrap">
+    <h2>Pricing</h2>
+    <div class="plans">
+      <div class="plan">
+        <h3>Free</h3>
+        <div class="amount">$0</div>
+        <ul>
+          <li>Unfollow up to 20/day</li>
+          <li>Non-follower detection</li>
+          <li>Unfollow tracker</li>
+          <li>Normal &amp; Safe speeds</li>
+        </ul>
+      </div>
+      <div class="plan pro">
+        <h3>Pro</h3>
+        <div class="amount">$3 <span style="font-size:14px;font-weight:400">one-time</span></div>
+        <ul>
+          <li>Everything in Free</li>
+          <li>Ghost follower cleanup</li>
+          <li>Fast speed mode</li>
+          <li>Adjustable caps up to 500/day</li>
+          <li>Lifetime license — pay once</li>
+        </ul>
+        <a class="btn" href="#pricing">Buy Pro — $3</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap faq">
+    <h2>FAQ</h2>
+    <details>
+      <summary>Is it safe for my X account?</summary>
+      <p>Yes — it ships on Safe speed with conservative daily caps. Aggressive automation risks X account locks, so the defaults protect you. You confirm every batch before anything happens.</p>
+    </details>
+    <details>
+      <summary>How do I get my Pro license?</summary>
+      <p>After purchase you receive a license key by email. Paste it into the extension's popup and click Activate — it binds to your X handle.</p>
+    </details>
+    <details>
+      <summary>What data does the extension collect?</summary>
+      <p>Almost none. Everything runs locally in your browser. The only data that ever leaves your machine is your license key and X handle, sent once to our license server to activate Pro. See the <a href="privacy.html">Privacy Policy</a>.</p>
+    </details>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a href="terms.html">Terms of Service</a>
+    <a href="privacy.html">Privacy Policy</a>
+    <a href="refunds.html">Refund Policy</a><br><br>
+    © 2026 Yibo Lei · Support: yibolei2@gmail.com
+  </div>
+</footer>
+</body>
+</html>
