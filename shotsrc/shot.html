@@ -1,0 +1,25 @@
+<!DOCTYPE html><html><head><meta charset="utf-8"><style>
+*{margin:0;box-sizing:border-box} body{width:1280px;height:800px;background:#0a0c18;font-family:-apple-system,"Segoe UI",Roboto,sans-serif;color:#fff;overflow:hidden;position:relative}
+.wrap{display:flex;align-items:center;height:100%;padding:0 72px;gap:64px}
+.left{max-width:600px} .kicker{color:#E3B341;letter-spacing:3px;font-size:15px;font-weight:700;margin-bottom:18px}
+h1{font-size:52px;line-height:1.12;font-weight:800} h1 .g{color:#E3B341}
+p.sub{margin-top:20px;font-size:20px;line-height:1.55;color:#c9cede}
+ul{margin-top:26px;list-style:none} li{font-size:18px;color:#e8eaf2;margin:10px 0} li b{color:#E3B341}
+.frame{background:#fff;border-radius:14px;padding:10px;box-shadow:0 30px 80px rgba(0,0,0,.55)}
+iframe{border:0;width:392px;height:640px;display:block;border-radius:8px}
+.foot{position:absolute;left:72px;bottom:34px;color:#8b93a8;font-size:14px}
+</style></head><body><div class="wrap">
+<div class="left"><div class="kicker">UNFOLLOW MANAGER FOR X</div><h1 id="h"></h1><p class="sub" id="s"></p><ul id="u"></ul></div>
+<div class="frame"><iframe id="f"></iframe></div></div>
+<div class="foot">Free to start · Pro $9.9 / 12 months · No password needed — everything runs in your browser</div>
+<script>
+const V = {
+ main:{h:'See who doesn\'t <span class="g">follow you back</span>', s:'One-click analysis splits your following list into clear segments.', u:['<b>✓</b> Non-followers, ghost &amp; low-quality segments','<b>✓</b> Bulk unfollow with a live progress bar','<b>✓</b> Whitelist protection — never touch your favorites'], tab:''},
+ cleanup:{h:'Remove <span class="g">ghost followers</span> silently', s:'Pro cleanup removes followers with a soft block / unblock. They are never notified.', u:['<b>✓</b> Filter by traits: no posts, default avatar, no bio','<b>✓</b> Already-blocked accounts are skipped automatically','<b>✓</b> Safe speeds, batch rests and daily caps'], tab:'cleanup'},
+ settings:{h:'Pro that pays for <span class="g">itself</span>', s:'One key unlocks the extension and the web analyzer for 12 months.', u:['<b>✓</b> $9.9 one-time — not a subscription','<b>✓</b> Fast speed + daily cap up to 500','<b>✓</b> Full follower analysis on the web, too'], tab:'settings'}
+};
+const v = V[new URLSearchParams(location.search).get('v') || 'main'];
+document.getElementById('h').innerHTML = v.h; document.getElementById('s').innerHTML = v.s;
+document.getElementById('u').innerHTML = v.u.join('');
+document.getElementById('f').src = 'shot-popup.html' + (v.tab ? '?tab=' + v.tab : '');
+</script></body></html>

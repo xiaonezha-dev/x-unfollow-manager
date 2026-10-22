@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<style>
+  * { box-sizing: border-box; }
+  body { width: 380px; margin: 0; font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; font-size: 13px; color: #1c1e21; background: #fff; }
+  header { padding: 10px 14px; border-bottom: 1px solid #eee; display: flex; align-items: center; justify-content: space-between; }
+  header h1 { font-size: 15px; margin: 0; }
+  .tabs { display: flex; border-bottom: 1px solid #eee; }
+  .tabs button { flex: 1; border: 0; background: #fff; padding: 9px 0; cursor: pointer; font-size: 13px; color: #666; }
+  .tabs button.active { color: #1d9bf0; border-bottom: 2px solid #1d9bf0; font-weight: 600; }
+  section.tab { display: none; padding: 12px 14px; max-height: 480px; overflow-y: auto; }
+  section.tab.active { display: block; }
+  .row { display: flex; gap: 8px; align-items: center; margin: 8px 0; flex-wrap: wrap; }
+  button { cursor: pointer; border-radius: 999px; border: 1px solid #cfd9de; background: #fff; padding: 6px 14px; font-size: 13px; }
+  button.primary { background: #1d9bf0; border-color: #1d9bf0; color: #fff; font-weight: 600; }
+  button.danger { background: #f4212e; border-color: #f4212e; color: #fff; font-weight: 600; }
+  button:disabled { opacity: .5; cursor: default; }
+  button:hover:not(:disabled) { background: #eef1f3; }
+  button.primary:hover:not(:disabled) { background: #1a8cd8; border-color: #1a8cd8; }
+  button.danger:hover:not(:disabled) { background: #d91e29; border-color: #d91e29; }
+  button:active:not(:disabled) { transform: scale(.96); }
+  .tabs button:hover { color: #1d9bf0; }
+  .hint { background: #f7f9fa; border-radius: 8px; padding: 8px 10px; color: #536471; font-size: 12px; }
+  .progress { height: 8px; background: #eff3f4; border-radius: 4px; overflow: hidden; margin: 8px 0; }
+  .progress > div { height: 100%; width: 0%; background: #1d9bf0; transition: width .3s; }
+  #status { color: #536471; font-size: 12px; min-height: 18px; }
+  .chips { display: flex; flex-wrap: wrap; gap: 6px; margin: 8px 0 4px; }
+  .chips .chip { border: 1px solid #cfd9de; background: #fff; border-radius: 999px; padding: 3px 10px; font-size: 12px; color: #1c1e21; }
+  .chips .chip .n { opacity: .65; font-size: 11px; margin-left: 2px; }
+  .chips .chip.on { background: #1d9bf0; border-color: #1d9bf0; color: #fff; font-weight: 600; }
+  .chips .chip.on .n { opacity: .85; }
+  ul#userList, ul#cleanupList { list-style: none; margin: 8px 0 0; padding: 0; max-height: 220px; overflow-y: auto; border-top: 1px solid #eee; }
+  ul#userList li, ul#cleanupList li { display: flex; align-items: center; gap: 8px; padding: 6px 0; border-bottom: 1px solid #f2f2f2; }
+  .handle { font-weight: 600; }
+  .meta { color: #536471; font-size: 11px; }
+  .badge { font-size: 10px; border-radius: 4px; padding: 1px 5px; background: #eff3f4; color: #536471; }
+  .badge.v { background: #e8f5fe; color: #1d9bf0; }
+  .badge.bot { background: #fdeceb; color: #f4212e; }
+  textarea { width: 100%; border: 1px solid #cfd9de; border-radius: 8px; padding: 8px; font-size: 13px; }
+  select, input[type=number] { padding: 5px 8px; border-radius: 8px; border: 1px solid #cfd9de; font-size: 13px; }
+  .warn { background: #fff8e1; border-radius: 8px; padding: 8px 10px; font-size: 12px; color: #7a5c00; }
+  .counts { color: #536471; font-size: 12px; margin-left: auto; }
+  details { margin-top: 12px; border-top: 1px solid #eee; padding-top: 8px; }
+  details summary { cursor: pointer; color: #536471; font-size: 12px; padding: 2px 0; }
+</style>
+</head>
+<body>
+<header>
+  <h1>X Unfollow Manager</h1>
+  <div>
+    <button id="langZh" title="中文">中</button>
+    <button id="langEn" title="English">EN</button>
+  </div>
+</header>
+<div class="tabs">
+  <button data-tab="nonfb" class="active" id="tabBtnNonfb">正在关注</button>
+  <button data-tab="cleanup" id="tabBtnCleanup">粉丝</button>
+  <button data-tab="white" id="tabBtnWhite">白名单</button>
+  <button data-tab="settings" id="tabBtnSettings">设置</button>
+</div>
+
+<section id="tab-nonfb" class="tab active">
+  <div class="row">
+    <button id="apiFetch" class="primary"></button>
+  </div>
+  <p id="apiStatus" class="meta"></p>
+  <p id="status"></p>
+  <div class="chips" id="chipsF"></div>
+  <p class="meta" id="segDescF"></p>
+  <div class="row">
+    <button id="selAll"></button>
+    <button id="selNone"></button>
+    <span class="counts" id="counts"></span>
+  </div>
+  <ul id="userList"></ul>
+  <div class="progress"><div id="bar"></div></div>
+  <p id="progTextF" class="meta"></p>
+  <div class="row">
+    <select id="speedSel">
+      <option value="fast">🚀 <span>快速</span></option>
+      <option value="normal">🚶 <span>普通</span></option>
+      <option value="safe" selected>🛡️ <span>安全</span></option>
+    </select>
+    <button id="startUnfollow" class="danger"></button>
+    <button id="stopBtn"></button>
+  </div>
+  <details id="fallbackF">
+    <summary id="fallbackSummaryF"></summary>
+    <p class="hint" id="pageHint"></p>
+    <div class="row">
+      <button id="scanFollowing" class="primary"></button>
+      <button id="resumeFollowing" title="从上次中断处接着扫描"></button>
+      <button id="scanFollowers"></button>
+      <button id="resumeFollowers" title="从上次中断处接着扫描"></button>
+      <button id="computeNonFb"></button>
+    </div>
+    <div class="row">
+      <button id="importBtn"></button>
+      <input type="file" id="importFile" accept=".json,.csv,.txt" style="display:none">
+      <button id="clearImport"></button>
+    </div>
+    <p id="importStatus" class="meta"></p>
+  </details>
+</section>
+
+<section id="tab-cleanup" class="tab">
+  <div class="row">
+    <button id="apiFetchC" class="primary"></button>
+  </div>
+  <p id="cleanupStatus" class="meta"></p>
+  <div class="chips" id="chipsC"></div>
+  <p class="meta" id="segDescC"></p>
+  <div class="row">
+    <button id="selAllC"></button>
+    <button id="selNoneC"></button>
+    <span class="counts" id="countsC"></span>
+  </div>
+  <ul id="cleanupList"></ul>
+  <div class="progress"><div id="barC"></div></div>
+  <p id="progTextC" class="meta"></p>
+  <div class="row">
+    <button id="startCleanup" class="danger"></button>
+    <button id="stopCleanupBtn"></button>
+  </div>
+  <details id="fallbackC">
+    <summary id="fallbackSummaryC"></summary>
+    <p class="hint" id="cleanupHint"></p>
+    <div class="row">
+      <button id="computeNonBlue" class="primary"></button>
+    </div>
+    <div class="row">
+      <button id="importBtnC"></button>
+      <input type="file" id="importFileC" accept=".json,.csv,.txt" style="display:none">
+      <button id="clearImportC"></button>
+    </div>
+    <p id="importStatusC" class="meta"></p>
+  </details>
+</section>
+
+<section id="tab-white" class="tab">
+  <p class="hint" id="whiteHint"></p>
+  <textarea id="whiteArea" rows="8" placeholder="@handle / handle，每行一个"></textarea>
+  <div class="row"><button id="whiteSave" class="primary"></button><span class="counts" id="whiteCount"></span></div>
+</section>
+
+<section id="tab-settings" class="tab">
+  <h3 id="proTitle" style="margin:4px 0 8px;font-size:14px;"></h3>
+  <p id="proStatus" class="hint"></p>
+  <div class="row">
+    <input type="text" id="keyInput" style="flex:1;padding:6px 10px;border-radius:8px;border:1px solid #cfd9de;" />
+    <button id="activateBtn" class="primary"></button>
+  </div>
+  <p id="bindHint" class="meta" style="display:none"></p>
+  <p id="bindError" class="meta" style="display:none;color:#f4212e"></p>
+  <div class="row">
+    <button id="buyBtn" style="flex:1;background:#b8860b;color:#fff;border:1px solid #b8860b;border-radius:8px;padding:7px 10px;cursor:pointer"></button>
+  </div>
+  <div class="row">
+    <input type="text" id="serverInput" style="flex:1;padding:6px 10px;border-radius:8px;border:1px solid #cfd9de;" />
+    <button id="serverSave"></button>
+  </div>
+  <div class="row">
+    <label><span id="lblCap"></span> <input type="number" id="capInput" min="1" max="500" value="50"></label>
+  </div>
+  <div class="row">
+    <button id="capSave"></button>
+  </div>
+  <p class="warn" id="disclaimer"></p>
+</section>
+
+<script>
+const DEMO = (() => {
+  const F = ['alice_writes','bobbuilds','carol_codes','davedraws','emma_eats','frankfilms','grace_grows','henryhikes','ivyinvests','jackjournals','karaknits','liamlearns'];
+  const BACK = ['alice_writes','carol_codes','emma_eats','grace_grows','ivyinvests','karaknits','liamlearns'];
+  const NAMES = {alice_writes:'Alice · Writer',bobbuilds:'Bob Builds',carol_codes:'Carol Codes',davedraws:'Dave Draws',emma_eats:'Emma Eats',frankfilms:'Frank Films',grace_grows:'Grace Grows',henryhikes:'Henry Hikes',ivyinvests:'Ivy Invests',jackjournals:'Jack Journals',karaknits:'Kara Knits',liamlearns:'Liam Learns'};
+  const det = {}; F.forEach((h,i)=>{ det[h]={name:NAMES[h], verified: i%5===0, isDefaultAvatar: ['bobbuilds','henryhikes'].includes(h), bio: i%3===0?'':'Sharing what I learn, one post at a time.', tweets: [1240,3,860,45,2310,12,640,0,980,77,410,150][i]}; });
+  return { lang:'en', speed:'safe', whitelist:['alice_writes'],
+    followingList:{handles:F, detail:det}, followersList:{handles:BACK, detail:det} };
+})();
+window.chrome = { storage:{ local:{ get: async()=>({xum: JSON.parse(JSON.stringify(DEMO))}), set: async()=>{}, remove: async()=>{} } },
+  tabs:{ query: async()=>[], sendMessage: async()=>{} }, runtime:{ lastError:null, sendMessage: async()=>{} } };
+window.fetch = () => Promise.reject(new Error('offline-demo'));
+</script><script src="license.js"></script>
+<script src="popup.js"></script>
+<script>
+window.addEventListener('load', () => { setTimeout(() => {
+  const q = new URLSearchParams(location.search).get('tab');
+  if (q === 'cleanup') document.getElementById('tabBtnCleanup').click();
+  if (q === 'settings') document.getElementById('tabBtnSettings').click();
+}, 900); });
+</script></body>
+</html>
