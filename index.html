@@ -14,6 +14,9 @@ body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Ar
 .topbar a{color:#f3e9d2;text-decoration:none;font-weight:600;white-space:nowrap}
 .topbar a b{color:#c9a227;font-weight:800}
 .topbar a:hover{color:#c9a227}
+.langsw{display:inline-flex;gap:6px}
+.langsw button{background:transparent;color:#f3e9d2;border:1px solid #6b5c33;border-radius:999px;padding:2px 12px;font-size:12px;cursor:pointer;font-family:inherit}
+.langsw button.on{background:#c9a227;color:#14100a;border-color:#c9a227;font-weight:800}
 header{border-bottom:2px solid #c9a227;padding:16px 0;background:#faf6ef}
 header .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 16px}
 .logo{font-weight:800;font-size:18px;color:#14100a}
@@ -54,72 +57,73 @@ footer a{color:#555;margin:0 10px;text-decoration:none}
 </head>
 <body>
 <div class="topbar">
-  <a href="https://x.com/i/chat/group_join/g2112984680970727934/psYZPb01t0" target="_blank" rel="noopener"><b>X</b>&nbsp; 加入粉丝群 · Join the community</a>
-  <a href="https://x.com/xxiaonezha" target="_blank" rel="noopener"><b>X</b>&nbsp; 关注 @xxiaonezha · Follow</a>
+  <span class="langsw"><button type="button" data-lang-btn="zh">中文</button><button type="button" data-lang-btn="en">EN</button></span>
+  <a href="https://x.com/i/chat/group_join/g2112984680970727934/psYZPb01t0" rel="noopener"><b>X</b>&nbsp; 加入粉丝群 · Join the community</a>
+  <a href="https://x.com/xxiaonezha" rel="noopener"><b>X</b>&nbsp; 关注 @xxiaonezha · Follow</a>
 </div>
 <header>
   <div class="wrap">
     <div class="logo">Unfollow Manager for X</div>
     <nav>
-      <a href="#features">Features</a>
-      <a href="#pricing">Pricing</a>
-      <a href="terms.html">Terms</a>
-      <a href="privacy.html">Privacy</a>
-      <a href="refunds.html">Refunds</a>
+      <a href="#features" data-i18n="nav_features">Features</a>
+      <a href="#pricing" data-i18n="nav_pricing">Pricing</a>
+      <a href="terms.html" data-i18n="nav_terms">Terms</a>
+      <a href="privacy.html" data-i18n="nav_privacy">Privacy</a>
+      <a href="refunds.html" data-i18n="nav_refunds">Refunds</a>
     </nav>
   </div>
 </header>
 
 <div class="hero wrap">
-  <h1>Bulk Unfollow &amp; Ghost Follower Cleanup for X</h1>
+  <h1 data-i18n="hero_h1">Bulk Unfollow &amp; Ghost Follower Cleanup for X</h1>
   <div class="goldline"></div>
-  <p>Bulk unfollow people who don't follow back, see who unfollowed you, and remove ghost followers — with safe speed limits.</p>
-  <a class="btn" href="#pricing">Get Pro — $9.9/year</a>
-  <div class="price-note">Launching soon on the Chrome Web Store · Free plan available</div>
+  <p data-i18n="hero_p">Bulk unfollow people who don't follow back, see who unfollowed you, and remove ghost followers — with safe speed limits.</p>
+  <a class="btn" href="#pricing" data-i18n="hero_btn">Get Pro — $9.9/year</a>
+  <div class="price-note" data-i18n="hero_note">Launching soon on the Chrome Web Store · Free plan available</div>
 </div>
 
 <section id="features">
   <div class="wrap">
-    <h2>What it does</h2>
+    <h2 data-i18n="feat_h2">What it does</h2>
     <div class="grid">
-      <div class="card"><h3>Bulk unfollow</h3><p>Select and unfollow in batches with a live progress bar. Stop anytime.</p></div>
-      <div class="card"><h3>Non-follower detection</h3><p>Find everyone who doesn't follow you back, filter and clean up in batches.</p></div>
-      <div class="card"><h3>Unfollow tracker</h3><p>Snapshot your followers and see exactly who quietly unfollowed you.</p></div>
-      <div class="card"><h3>Ghost follower cleanup (Pro)</h3><p>List non-verified followers and remove them with a silent soft block/unblock — they are never notified.</p></div>
-      <div class="card"><h3>Smart filters</h3><p>Flag likely bot accounts, auto-protect verified accounts.</p></div>
-      <div class="card"><h3>Whitelist</h3><p>Never touch the people you choose.</p></div>
-      <div class="card"><h3>Safe speed tiers</h3><p>Fast / Normal / Safe speeds with daily caps to respect X rate limits. Ships on Safe by default.</p></div>
-      <div class="card"><h3>Bilingual</h3><p>English / 中文 interface.</p></div>
+      <div class="card"><h3 data-i18n="c1t">Bulk unfollow</h3><p data-i18n="c1p">Select and unfollow in batches with a live progress bar. Stop anytime.</p></div>
+      <div class="card"><h3 data-i18n="c2t">Non-follower detection</h3><p data-i18n="c2p">Find everyone who doesn't follow you back, filter and clean up in batches.</p></div>
+      <div class="card"><h3 data-i18n="c3t">Unfollow tracker</h3><p data-i18n="c3p">Snapshot your followers and see exactly who quietly unfollowed you.</p></div>
+      <div class="card"><h3 data-i18n="c4t">Ghost follower cleanup (Pro)</h3><p data-i18n="c4p">List non-verified followers and remove them with a silent soft block/unblock — they are never notified.</p></div>
+      <div class="card"><h3 data-i18n="c5t">Smart filters</h3><p data-i18n="c5p">Flag likely bot accounts, auto-protect verified accounts.</p></div>
+      <div class="card"><h3 data-i18n="c6t">Whitelist</h3><p data-i18n="c6p">Never touch the people you choose.</p></div>
+      <div class="card"><h3 data-i18n="c7t">Safe speed tiers</h3><p data-i18n="c7p">Fast / Normal / Safe speeds with daily caps to respect X rate limits. Ships on Safe by default.</p></div>
+      <div class="card"><h3 data-i18n="c8t">Bilingual</h3><p data-i18n="c8p">English / 中文 interface.</p></div>
     </div>
   </div>
 </section>
 
 <section id="pricing">
   <div class="wrap">
-    <h2>Pricing</h2>
+    <h2 data-i18n="pricing_h2">Pricing</h2>
     <div class="plans">
       <div class="plan">
-        <h3>Free</h3>
+        <h3 data-i18n="free_h3">Free</h3>
         <div class="amount">$0</div>
         <ul>
-          <li>Unfollow up to 20/day</li>
-          <li>Non-follower detection</li>
-          <li>Unfollow tracker</li>
-          <li>Normal &amp; Safe speeds</li>
+          <li data-i18n="f1">Unfollow up to 20/day</li>
+          <li data-i18n="f2">Non-follower detection</li>
+          <li data-i18n="f3">Unfollow tracker</li>
+          <li data-i18n="f4">Normal &amp; Safe speeds</li>
         </ul>
       </div>
       <div class="plan pro">
         <span class="badge">PRO</span>
         <h3>Pro</h3>
-        <div class="amount">$9.9 <span style="font-size:14px;font-weight:400">/ year</span></div>
+        <div class="amount">$9.9 <span style="font-size:14px;font-weight:400" data-i18n="per_year">/ year</span></div>
         <ul>
-          <li>Everything in Free</li>
-          <li>Ghost follower cleanup</li>
-          <li>Fast speed mode</li>
-          <li>Adjustable caps up to 500/day</li>
-          <li>12-month license — one payment, no auto-renew</li>
+          <li data-i18n="p1">Everything in Free</li>
+          <li data-i18n="p2">Ghost follower cleanup</li>
+          <li data-i18n="p3">Fast speed mode</li>
+          <li data-i18n="p4">Adjustable caps up to 500/day</li>
+          <li data-i18n="p5">12-month license — one payment, no auto-renew</li>
         </ul>
-        <a class="btn" href="https://license.xiaonezha.shop/buy">Buy Pro — $9.9</a>
+        <a class="btn" href="https://license.xiaonezha.shop/buy" data-i18n="buy_btn">Buy Pro — $9.9</a>
       </div>
     </div>
   </div>
@@ -127,29 +131,114 @@ footer a{color:#555;margin:0 10px;text-decoration:none}
 
 <section>
   <div class="wrap faq">
-    <h2>FAQ</h2>
+    <h2 data-i18n="faq_h2">FAQ</h2>
     <details>
-      <summary>Is it safe for my X account?</summary>
-      <p>Yes — it ships on Safe speed with conservative daily caps. Aggressive automation risks X account locks, so the defaults protect you. You confirm every batch before anything happens.</p>
+      <summary data-i18n="q1">Is it safe for my X account?</summary>
+      <p data-i18n="a1">Yes — it ships on Safe speed with conservative daily caps. Aggressive automation risks X account locks, so the defaults protect you. You confirm every batch before anything happens.</p>
     </details>
     <details>
-      <summary>How do I get my Pro license?</summary>
-      <p>After purchase, claim your license key with your checkout email on the <a href="https://license.xiaonezha.shop/claim">claim page</a>. Paste it into the extension's popup and click Activate — it binds to your X handle.</p>
+      <summary data-i18n="q2">How do I get my Pro license?</summary>
+      <p data-i18n="a2">After purchase, claim your license key with your checkout email on the <a href="https://license.xiaonezha.shop/claim">claim page</a>. Paste it into the extension's popup and click Activate — it binds to your X handle.</p>
     </details>
     <details>
-      <summary>What data does the extension collect?</summary>
-      <p>Almost none. Everything runs locally in your browser. The only data that ever leaves your machine is your license key and X handle, sent once to our license server to activate Pro. See the <a href="privacy.html">Privacy Policy</a>.</p>
+      <summary data-i18n="q3">What data does the extension collect?</summary>
+      <p data-i18n="a3">Almost none. Everything runs locally in your browser. The only data that ever leaves your machine is your license key and X handle, sent once to our license server to activate Pro. See the <a href="privacy.html">Privacy Policy</a>.</p>
     </details>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <a href="terms.html">Terms of Service</a>
-    <a href="privacy.html">Privacy Policy</a>
-    <a href="refunds.html">Refund Policy</a><br><br>
+    <a href="terms.html" data-i18n="ft_terms">Terms of Service</a>
+    <a href="privacy.html" data-i18n="ft_privacy">Privacy Policy</a>
+    <a href="refunds.html" data-i18n="ft_refunds">Refund Policy</a><br><br>
     © 2026 NEZHA XIAO · Support: vip.xiaonezha@gmail.com
   </div>
 </footer>
+<script>
+var I18N = {
+  en: {
+    doc_title: "Unfollow Manager for X — Bulk Unfollow & Ghost Follower Cleanup",
+    nav_features: "Features", nav_pricing: "Pricing", nav_terms: "Terms", nav_privacy: "Privacy", nav_refunds: "Refunds",
+    hero_h1: "Bulk Unfollow & Ghost Follower Cleanup for X",
+    hero_p: "Bulk unfollow people who don't follow back, see who unfollowed you, and remove ghost followers — with safe speed limits.",
+    hero_btn: "Get Pro — $9.9/year",
+    hero_note: "Launching soon on the Chrome Web Store · Free plan available",
+    feat_h2: "What it does",
+    c1t: "Bulk unfollow", c1p: "Select and unfollow in batches with a live progress bar. Stop anytime.",
+    c2t: "Non-follower detection", c2p: "Find everyone who doesn't follow you back, filter and clean up in batches.",
+    c3t: "Unfollow tracker", c3p: "Snapshot your followers and see exactly who quietly unfollowed you.",
+    c4t: "Ghost follower cleanup (Pro)", c4p: "List non-verified followers and remove them with a silent soft block/unblock — they are never notified.",
+    c5t: "Smart filters", c5p: "Flag likely bot accounts, auto-protect verified accounts.",
+    c6t: "Whitelist", c6p: "Never touch the people you choose.",
+    c7t: "Safe speed tiers", c7p: "Fast / Normal / Safe speeds with daily caps to respect X rate limits. Ships on Safe by default.",
+    c8t: "Bilingual", c8p: "English / 中文 interface.",
+    pricing_h2: "Pricing", free_h3: "Free", per_year: "/ year",
+    f1: "Unfollow up to 20/day", f2: "Non-follower detection", f3: "Unfollow tracker", f4: "Normal & Safe speeds",
+    p1: "Everything in Free", p2: "Ghost follower cleanup", p3: "Fast speed mode", p4: "Adjustable caps up to 500/day",
+    p5: "12-month license — one payment, no auto-renew", buy_btn: "Buy Pro — $9.9",
+    faq_h2: "FAQ",
+    q1: "Is it safe for my X account?",
+    a1: "Yes — it ships on Safe speed with conservative daily caps. Aggressive automation risks X account locks, so the defaults protect you. You confirm every batch before anything happens.",
+    q2: "How do I get my Pro license?",
+    a2: "After purchase, claim your license key with your checkout email on the <a href=\"https://license.xiaonezha.shop/claim\">claim page</a>. Paste it into the extension's popup and click Activate — it binds to your X handle.",
+    q3: "What data does the extension collect?",
+    a3: "Almost none. Everything runs locally in your browser. The only data that ever leaves your machine is your license key and X handle, sent once to our license server to activate Pro. See the <a href=\"privacy.html\">Privacy Policy</a>.",
+    ft_terms: "Terms of Service", ft_privacy: "Privacy Policy", ft_refunds: "Refund Policy"
+  },
+  zh: {
+    doc_title: "Unfollow Manager for X — 批量取关与幽灵粉丝清理",
+    nav_features: "功能", nav_pricing: "定价", nav_terms: "条款", nav_privacy: "隐私", nav_refunds: "退款",
+    hero_h1: "批量取关，清理 X 上的幽灵粉丝",
+    hero_p: "批量取关不回关的人，查谁偷偷取关了你，清掉幽灵粉丝——全程有安全限速。",
+    hero_btn: "升级 Pro — $9.9/年",
+    hero_note: "即将登陆 Chrome 网上应用店 · 有免费版",
+    feat_h2: "功能一览",
+    c1t: "批量取关", c1p: "勾选后分批取关，带实时进度条，随时可停。",
+    c2t: "未回关检测", c2p: "找出所有没回关你的人，筛选后批量清理。",
+    c3t: "取关追踪", c3p: "给粉丝列表拍个快照，谁偷偷取关了一清二楚。",
+    c4t: "幽灵粉丝清理（Pro）", c4p: "列出未认证的粉丝，用静默软拉黑/解除的方式移除——对方不会收到通知。",
+    c5t: "智能过滤", c5p: "标记疑似机器人账号，自动保护已认证账号。",
+    c6t: "白名单", c6p: "你指定的人，永远不碰。",
+    c7t: "安全速度档位", c7p: "快速 / 普通 / 安全三档，带每日上限，守 X 的限速规则。默认安全档出厂。",
+    c8t: "双语界面", c8p: "English / 中文 界面。",
+    pricing_h2: "定价", free_h3: "免费版", per_year: "/ 年",
+    f1: "每天最多取关 20 个", f2: "未回关检测", f3: "取关追踪", f4: "普通和安全速度",
+    p1: "免费版全部功能", p2: "幽灵粉丝清理", p3: "快速模式", p4: "每日上限最高可调到 500",
+    p5: "12 个月授权——一次性付款，不自动续费", buy_btn: "购买 Pro — $9.9",
+    faq_h2: "常见问题",
+    q1: "对我的 X 账号安全吗？",
+    a1: "安全——默认安全档，每日上限保守。激进自动化有被 X 锁号的风险，所以默认设置是护着你的。每一批执行前都要你确认。",
+    q2: "怎么拿到 Pro 授权码？",
+    a2: "付款后，用结账邮箱到<a href=\"https://license.xiaonezha.shop/claim\">领取页</a>领取授权码。粘贴到插件弹窗里点激活——就绑定你的 X 账号了。",
+    q3: "插件收集什么数据？",
+    a3: "几乎不收集。所有功能都在你本地浏览器里运行。唯一离开你设备的数据是授权码和 X 账号名，只在激活 Pro 时发送一次到我们的授权服务器。见<a href=\"privacy.html\">隐私政策</a>。",
+    ft_terms: "服务条款", ft_privacy: "隐私政策", ft_refunds: "退款政策"
+  }
+};
+function setLang(l) {
+  var d = I18N[l] || I18N.en;
+  document.querySelectorAll("[data-i18n]").forEach(function (el) {
+    var k = el.getAttribute("data-i18n");
+    if (d[k] !== undefined) el.innerHTML = d[k];
+  });
+  document.title = d.doc_title;
+  document.documentElement.lang = (l === "zh") ? "zh-CN" : "en";
+  document.querySelectorAll("[data-lang-btn]").forEach(function (b) {
+    b.classList.toggle("on", b.getAttribute("data-lang-btn") === l);
+  });
+  try { localStorage.setItem("xumLang", l); } catch (e) {}
+}
+document.querySelectorAll("[data-lang-btn]").forEach(function (b) {
+  b.addEventListener("click", function () { setLang(b.getAttribute("data-lang-btn")); });
+});
+var initLang = "en";
+try {
+  initLang = localStorage.getItem("xumLang") || ((navigator.language || "en").toLowerCase().indexOf("zh") === 0 ? "zh" : "en");
+} catch (e) {
+  initLang = ((navigator.language || "en").toLowerCase().indexOf("zh") === 0) ? "zh" : "en";
+}
+setLang(initLang);
+</script>
 </body>
 </html>
