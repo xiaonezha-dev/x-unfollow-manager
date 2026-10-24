@@ -7,48 +7,58 @@
 <meta name="description" content="Bulk unfollow people who don't follow back, see who unfollowed you, and remove ghost followers — with safe speed limits.">
 <style>
 *{box-sizing:border-box;margin:0;padding:0}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#1a1a1a;line-height:1.6;background:#fff}
+html{scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;color:#20180e;line-height:1.6;background:#faf6ef}
 .wrap{max-width:960px;margin:0 auto;padding:0 20px}
-header{border-bottom:1px solid #eee;padding:16px 0}
-header .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px}
-.logo{font-weight:800;font-size:18px}
-nav a{margin-left:18px;color:#555;text-decoration:none;font-size:14px}
-nav a:hover{color:#000}
-.hero{text-align:center;padding:72px 0 56px}
-.hero h1{font-size:40px;line-height:1.2;margin-bottom:16px}
-.hero p{font-size:18px;color:#555;max-width:640px;margin:0 auto 28px}
-.btn{display:inline-block;background:#000;color:#fff;padding:14px 32px;border-radius:10px;text-decoration:none;font-weight:700;font-size:16px}
-.btn:hover{background:#333}
-.price-note{margin-top:14px;color:#777;font-size:14px}
+.topbar{background:#14100a;color:#f3e9d2;font-size:13px;padding:8px 16px;display:flex;justify-content:center;align-items:center;gap:8px 26px;flex-wrap:wrap;text-align:center}
+.topbar a{color:#f3e9d2;text-decoration:none;font-weight:600;white-space:nowrap}
+.topbar a b{color:#c9a227;font-weight:800}
+.topbar a:hover{color:#c9a227}
+header{border-bottom:2px solid #c9a227;padding:16px 0;background:#faf6ef}
+header .wrap{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px 16px}
+.logo{font-weight:800;font-size:18px;color:#14100a}
+nav{display:flex;flex-wrap:wrap;gap:4px 18px}
+nav a{color:#555;text-decoration:none;font-size:14px}
+nav a:hover{color:#9a7b24}
+.hero{text-align:center;padding:64px 0 52px}
+.hero h1{font-size:42px;line-height:1.2;margin-bottom:14px;font-weight:800}
+.goldline{width:64px;height:4px;background:#c9a227;border-radius:2px;margin:0 auto 18px}
+.hero p{font-size:18px;color:#5c5340;max-width:640px;margin:0 auto 28px}
+.btn{display:inline-block;background:#c9a227;color:#14100a;padding:14px 34px;border-radius:12px;text-decoration:none;font-weight:800;font-size:16px}
+.btn:hover{background:#b28e1f}
+.price-note{margin-top:14px;color:#8a7c5c;font-size:14px}
 section{padding:48px 0}
-h2{font-size:28px;margin-bottom:24px;text-align:center}
+h2{font-size:28px;margin-bottom:24px;text-align:center;font-weight:800}
 .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px}
-.card{border:1px solid #eee;border-radius:12px;padding:20px}
+.card{background:#fff;border:1px solid #e9dfc8;border-radius:16px;padding:20px}
 .card h3{font-size:16px;margin-bottom:8px}
-.card p{font-size:14px;color:#555}
+.card p{font-size:14px;color:#5c5340}
+#pricing{background:#fff;border-top:1px solid #e9dfc8;border-bottom:1px solid #e9dfc8}
 .plans{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:20px;max-width:720px;margin:0 auto}
-.plan{border:2px solid #eee;border-radius:14px;padding:28px;text-align:center}
-.plan.pro{border-color:#000}
+.plan{background:#faf6ef;border:2px solid #e9dfc8;border-radius:16px;padding:28px;text-align:center}
+.plan.pro{border-color:#14100a;box-shadow:0 6px 24px rgba(154,123,36,.18)}
+.plan .badge{display:inline-block;background:#c9a227;color:#14100a;font-size:12px;font-weight:800;padding:3px 12px;border-radius:999px;margin-bottom:10px;letter-spacing:.5px}
 .plan h3{font-size:20px;margin-bottom:8px}
-.plan .amount{font-size:36px;font-weight:800;margin:12px 0}
+.plan .amount{font-size:38px;font-weight:800;margin:12px 0}
 .plan ul{list-style:none;text-align:left;font-size:14px;color:#444;margin:16px 0}
-.plan ul li{padding:6px 0;border-bottom:1px solid #f2f2f2}
+.plan ul li{padding:6px 0;border-bottom:1px solid #efe6cf}
 .faq{max-width:680px;margin:0 auto}
-.faq details{border:1px solid #eee;border-radius:10px;padding:14px 18px;margin-bottom:12px}
+.faq details{background:#fff;border:1px solid #e9dfc8;border-radius:12px;padding:14px 18px;margin-bottom:12px}
 .faq summary{font-weight:700;cursor:pointer}
-.faq p{font-size:14px;color:#555;margin-top:8px}
-footer{border-top:1px solid #eee;padding:28px 0;text-align:center;font-size:13px;color:#777}
+.faq p{font-size:14px;color:#5c5340;margin-top:8px}
+.faq a{color:#9a7b24}
+footer{border-top:2px solid #c9a227;padding:28px 0;text-align:center;font-size:13px;color:#8a7c5c}
 footer a{color:#555;margin:0 10px;text-decoration:none}
-@media(max-width:600px){.hero h1{font-size:30px}}
+@media(max-width:600px){.hero{padding:44px 0 36px}.hero h1{font-size:30px}.topbar{font-size:12.5px;gap:6px 18px}}
 </style>
 </head>
 <body>
+<div class="topbar">
+  <a href="https://x.com/i/chat/group_join/g2112984680970727934/psYZPb01t0" target="_blank" rel="noopener"><b>X</b>&nbsp; 加入粉丝群 · Join the community</a>
+  <a href="https://x.com/xxiaonezha" target="_blank" rel="noopener"><b>X</b>&nbsp; 关注 @xxiaonezha · Follow</a>
+</div>
 <header>
   <div class="wrap">
-    <div style="margin-bottom:16px">
-      <a href="https://x.com/i/chat/group_join/g2112984680970727934/psYZPb01t0" target="_blank" rel="noopener" style="display:inline-block;background:#000;color:#fff;padding:9px 18px;border-radius:999px;font-weight:700;margin:0 5px;text-decoration:none">X&nbsp; 加入粉丝群 · Join the community</a>
-      <a href="https://x.com/xxiaonezha" target="_blank" rel="noopener" style="display:inline-block;background:#000;color:#fff;padding:9px 18px;border-radius:999px;font-weight:700;margin:0 5px;text-decoration:none">X&nbsp; 关注 @xxiaonezha · Follow</a>
-    </div>
     <div class="logo">Unfollow Manager for X</div>
     <nav>
       <a href="#features">Features</a>
@@ -62,6 +72,7 @@ footer a{color:#555;margin:0 10px;text-decoration:none}
 
 <div class="hero wrap">
   <h1>Bulk Unfollow &amp; Ghost Follower Cleanup for X</h1>
+  <div class="goldline"></div>
   <p>Bulk unfollow people who don't follow back, see who unfollowed you, and remove ghost followers — with safe speed limits.</p>
   <a class="btn" href="#pricing">Get Pro — $9.9/year</a>
   <div class="price-note">Launching soon on the Chrome Web Store · Free plan available</div>
@@ -83,7 +94,7 @@ footer a{color:#555;margin:0 10px;text-decoration:none}
   </div>
 </section>
 
-<section id="pricing" style="background:#fafafa">
+<section id="pricing">
   <div class="wrap">
     <h2>Pricing</h2>
     <div class="plans">
@@ -98,6 +109,7 @@ footer a{color:#555;margin:0 10px;text-decoration:none}
         </ul>
       </div>
       <div class="plan pro">
+        <span class="badge">PRO</span>
         <h3>Pro</h3>
         <div class="amount">$9.9 <span style="font-size:14px;font-weight:400">/ year</span></div>
         <ul>
@@ -107,7 +119,7 @@ footer a{color:#555;margin:0 10px;text-decoration:none}
           <li>Adjustable caps up to 500/day</li>
           <li>12-month license — one payment, no auto-renew</li>
         </ul>
-        <a class="btn" href="#pricing">Buy Pro — $9.9</a>
+        <a class="btn" href="https://license.xiaonezha.shop/buy">Buy Pro — $9.9</a>
       </div>
     </div>
   </div>
@@ -122,7 +134,7 @@ footer a{color:#555;margin:0 10px;text-decoration:none}
     </details>
     <details>
       <summary>How do I get my Pro license?</summary>
-      <p>After purchase you receive a license key by email. Paste it into the extension's popup and click Activate — it binds to your X handle.</p>
+      <p>After purchase, claim your license key with your checkout email on the <a href="https://license.xiaonezha.shop/claim">claim page</a>. Paste it into the extension's popup and click Activate — it binds to your X handle.</p>
     </details>
     <details>
       <summary>What data does the extension collect?</summary>
